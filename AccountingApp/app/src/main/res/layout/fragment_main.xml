@@ -6,7 +6,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
             android:id="@+id/day_text"
             android:layout_width="match_parent"
@@ -23,16 +22,12 @@
             android:layout_below="@+id/day_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         </ListView>
-
     </RelativeLayout>
-
     <RelativeLayout
         android:id="@+id/no_record_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

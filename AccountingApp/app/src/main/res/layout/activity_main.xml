@@ -15,7 +15,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="120dp">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -54,7 +53,6 @@
                 android:textColor="@color/colorPrimaryDark"/>
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -63,8 +61,6 @@
         app:layout_anchorGravity="bottom|end"
         android:src="@drawable/baseline_add_black_36"
         android:layout_margin="16dp"
-
         />
-
     <include layout="@layout/content_main" />
 </android.support.design.widget.CoordinatorLayout>

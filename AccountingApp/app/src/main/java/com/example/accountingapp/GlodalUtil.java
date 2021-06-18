@@ -2,6 +2,7 @@ package com.example.accountingapp;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +13,8 @@ public class GlodalUtil {
 
     public static final String TAG = "GlobalUtil";
     private static GlodalUtil instance;
+
+    public static boolean isLogin = false;
 
     public RecordBatabaseHelper recordBatabaseHelper = null;
     private Context context;
@@ -64,7 +67,7 @@ public class GlodalUtil {
         }
     }
 
-    public static GlodalUtil getInstance(){
+    public static synchronized GlodalUtil getInstance(){
 
         if (instance==null){
             instance = new GlodalUtil();
@@ -84,6 +87,19 @@ public class GlodalUtil {
         }
 
         return categoryRes.get(0).resWhite;
+    }
+
+    public boolean StringIsEmpty(String str){
+        if (str == null) {
+            return true;
+        }
+        if ("".trim().equals(str)){
+            return true;
+        }
+        return false;
+    }
+    public void showToast(Context context ,String text){
+        Toast.makeText(context,text,Toast.LENGTH_SHORT).show();
     }
     private GlodalUtil() {
         Log.d(TAG, "GlodalUtil: init");

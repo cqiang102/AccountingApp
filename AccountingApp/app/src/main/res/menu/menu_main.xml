@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeActivity">
+    <item
+        android:orderInCategory="0"
+        android:title="导出账本"
+        app:showAsAction="collapseActionView" />
+    <item
+        android:orderInCategory="1"
+        android:title="导入账本"
+        app:showAsAction="collapseActionView" />
+</menu>

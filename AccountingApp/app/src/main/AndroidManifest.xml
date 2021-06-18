@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.accountingapp">
+    <!-- 文件读写权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,16 +13,33 @@
         android:roundIcon="@drawable/baseline_collections_bookmark_black_36"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.accountingapp.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- 指定Uri的共享路径 -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".NoteActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity
-            android:windowSoftInputMode="adjustPan"
-            android:name=".AddRecordActivity"></activity>
+            android:name=".AddRecordActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

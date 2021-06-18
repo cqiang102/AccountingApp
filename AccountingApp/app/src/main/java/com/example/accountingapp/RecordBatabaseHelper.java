@@ -51,27 +51,23 @@ public class RecordBatabaseHelper extends SQLiteOpenHelper {
         values.clear();
 
     }
-
     //删除
     public void removeRecord(String uuid){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(DB_NAME,"uuid = ?",new String[]{uuid});
     }
-
     //更新
     public void editRecord(String uuid,RecordBean bean){
         removeRecord(uuid);
         bean.setUuid(uuid);
         addRecord(bean);
     }
-
     //根据日期查当天的记录
     public List<RecordBean> readRecords(String dateStr){
         List<RecordBean> recordBeans = new LinkedList<>();
         SQLiteDatabase db = this.getWritableDatabase();
         String sql = "select * from Record where date = ? order by time asc";
         Cursor cursor = db.rawQuery(sql,new String[]{dateStr});
-
         if (cursor.moveToFirst()){
             do {
                 String uuid = cursor.getString(cursor.getColumnIndex("uuid"));
@@ -81,7 +77,6 @@ public class RecordBatabaseHelper extends SQLiteOpenHelper {
                 double amount = cursor.getDouble(cursor.getColumnIndex("amount"));
                 String date = cursor.getString(cursor.getColumnIndex("date"));
                 long timeStamp = cursor.getLong(cursor.getColumnIndex("time"));
-
                 RecordBean recordBean = new RecordBean();
                 recordBean.setUuid(uuid);
                 recordBean.setCategory(category);
@@ -90,9 +85,7 @@ public class RecordBatabaseHelper extends SQLiteOpenHelper {
                 recordBean.setAmount(amount);
                 recordBean.setDate(date);
                 recordBean.setTimeStamp(timeStamp);
-
                 recordBeans.add(recordBean);
-
             }while (cursor.moveToNext());
         }
         cursor.close();
